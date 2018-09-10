@@ -14,7 +14,7 @@ class SearchPage extends Component {
     };
   }
 
-  componentDidMount = () => {
+  componentWillMount = () => {
     const { initialSearch: initialSearchPlaces } = this.props;
     initialSearchPlaces();
   };
@@ -34,12 +34,12 @@ class SearchPage extends Component {
   search = () => {
     const { filter: name } = this.state;
     const filter = { name };
-    if (name === '') {
-      // alert('Please input search value');
-      // return;
+    const { search: searchProps, initialSearch } = this.props;
+    if (filter.name) {
+      searchProps(filter);
+    } else {
+      initialSearch();
     }
-    const { search: searchProps } = this.props;
-    searchProps(filter);
   };
 
   _renderItem = (places, refreshing) => {

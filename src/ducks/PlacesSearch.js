@@ -79,8 +79,7 @@ export const initialSearch = () => ({
       url: '/places/search',
       method: 'POST',
       data: {
-        page: 1,
-        limit,
+        name: 'Store',
       },
     },
   },
@@ -94,7 +93,7 @@ export const search = filter => ({
       data: {
         page: 1,
         limit,
-        ...parseFilter(filter),
+        name: filter.name
       },
     },
   },
