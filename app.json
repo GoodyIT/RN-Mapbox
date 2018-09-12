@@ -1,18 +1,21 @@
 {
   "expo": {
-		"sdkVersion": "27.0.0",
-		"name": "ProjectX",
-		"version": "1.0.0",
+    "sdkVersion": "27.0.0",
+    "name": "ProjectX",
+    "version": "1.0.0",
     "slug": "ProjectX",
-		"privacy": "unlisted",
-		"ios": {
-      "bundleIdentifier": "com.yourcompany.yourappname"
+    "privacy": "unlisted",
+    "ios": {
+      "bundleIdentifier": "uk.projectX.ios"
     },
     "android": {
-      "package": "com.yourcompany.yourappname"
-		},
-		// "androidStatusBar": {
-		// 	"backgroundColor": "#000000"
-		// }
+      "package": "uk.projectX.android",
+      "config": {
+        "googleMaps": { "apiKey": "AIzaSyB7wJ49vO5DpqUDLPz8NjaTz9jSSMmSZlk"}
+      }
+    }
+    // "androidStatusBar": {
+    //  "backgroundColor": "#000000"
+    // }
   }
 }

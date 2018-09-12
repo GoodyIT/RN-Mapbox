@@ -18,6 +18,7 @@ export default function authReducer(state = initialState, action = {}) {
     case LOGIN_PASSWORD:
       return { ...state };
     case LOGIN_PASSWORD_SUCCESS: {
+      console.log(action.payload.data)
       return { ...state, token: action.payload.data.access_token };
     }
     case LOGIN_PASSWORD_FAIL: {

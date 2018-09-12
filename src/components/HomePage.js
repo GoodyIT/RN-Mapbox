@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Platform } from 'react-native';
 import { Container, Content } from 'native-base';
-import Expo from 'expo';
+import Expo, { Constants, Location, Permissions } from 'expo';
 import PlaceShortInfoModal from './PlaceShortInfoModal';
 import PlaceCard from './PlaceCard';
 
@@ -15,6 +16,31 @@ const cardsUrl = [
 class HomePage extends React.Component {
   state = {
     modalVisible: false,
+    location: null,
+    errMessage: null
+  };
+
+  componentWillMount() {
+    if (Platform.OS === 'android' && !Constants.isDevice) {
+      this.setState({
+        errorMessage: 'Oops, this will not work on Sketch in an Android emulator. Try it on your device!',
+      });
+    } else {
+      this._getLocationAsync();
+    }
+  }
+
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== 'granted') {
+      this.setState({
+        errorMessage: 'Permission to access location was denied',
+      });
+    }
+
+    const location = await Location.getCurrentPositionAsync({});
+    this.setState({ location });
+    alert(JSON.stringify(location.coords))
   };
 
   setModalVisible = visible => {

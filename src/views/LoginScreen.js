@@ -109,17 +109,6 @@ const LoginScreen = ({ onEmailChange, onPasswordChange, logInPassword }) => (
           <Text>Log in</Text>
         </Button>
       </View>
-      <View style={styles.mb_10}>
-        <Text style={styles.or}>or</Text>
-      </View>
-      <View style={styles.loginButtonsView}>
-        <Button block style={{ ...styles.borderRadius_10, flexGrow: 1, marginRight: 4 }}>
-          <Icon name="logo-facebook" />
-        </Button>
-        <Button block danger style={{ ...styles.borderRadius_10, flexGrow: 1, marginLeft: 4 }}>
-          <Icon name="logo-google" />
-        </Button>
-      </View>
       <View style={styles.signUpView}>
         <Text style={{ color: '#999' }}>Don&apos;t have an account?</Text>
         <Button small transparent style={styles.signUpButton}>

@@ -1,16 +1,30 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { FlatList } from 'react-native';
-import { Container, Header, Item, Input, Icon, Button, Text, Spinner } from 'native-base';
-import { connect } from 'react-redux';
-import { initialSearch, loadMore, destroy, search } from '../ducks/PlacesSearch';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { FlatList, TouchableOpacity } from "react-native";
+import {
+  Container,
+  Header,
+  Item,
+  Input,
+  Icon,
+  Button,
+  Text,
+  Spinner
+} from "native-base";
+import { connect } from "react-redux";
+import {
+  initialSearch,
+  loadMore,
+  destroy,
+  search
+} from "../ducks/PlacesSearch";
 
 class SearchPage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      filter: '',
+      filter: ""
     };
   }
 
@@ -42,13 +56,23 @@ class SearchPage extends Component {
     }
   };
 
-  _renderItem = (places, refreshing) => {
+  _renderItem = (places, refreshing, navigation) => {
     return (
       <FlatList
         renderItem={p => (
-          <Text key={`${Math.random()}`} style={{ padding: 25 }}>
-            {p && p.item.name}
-          </Text>
+          <TouchableOpacity
+            key={`${Math.random()}`}
+            style={{ padding: 25 }}
+            onPress={() =>
+              navigation.navigate("StoreDetail", {
+                lat: p.item.lat,
+                lng: p.item.lng,
+                title: p.item.name
+              })
+            }
+          >
+            <Text>{p && p.item.name}</Text>
+          </TouchableOpacity>
         )}
         data={places}
         keyExtractor={() => `${Math.random()}`}
@@ -56,11 +80,11 @@ class SearchPage extends Component {
         onRefresh={this.search}
         refreshing={refreshing}
       />
-    )
-  }
+    );
+  };
 
   render() {
-    const { places, refreshing } = this.props;
+    const { places, refreshing, navigation } = this.props;
     return (
       <Container>
         <Header searchBar transparent rounded>
@@ -68,7 +92,9 @@ class SearchPage extends Component {
             <Icon name="arrow-back" />
             <Input
               placeholder="Search"
-              onChangeText={value => this.setState({ filter: value.toLowerCase() })}
+              onChangeText={value =>
+                this.setState({ filter: value.toLowerCase() })
+              }
               onSubmitEditing={this.search}
             />
             <Icon button onPress={this.search} name="ios-search" />
@@ -77,8 +103,8 @@ class SearchPage extends Component {
             <Text>Search</Text>
           </Button>
         </Header>
-        {refreshing && <Spinner color='green' />}
-        {!!places.length && this._renderItem(places, refreshing)}
+        {refreshing && !places.length && <Spinner color="#484848" />}
+        {!!places.length && this._renderItem(places, refreshing, navigation)}
       </Container>
     );
   }
@@ -91,16 +117,16 @@ SearchPage.propTypes = {
   page: PropTypes.number.isRequired,
   loading: PropTypes.bool.isRequired,
   refreshing: PropTypes.bool.isRequired,
-  places: PropTypes.array.isRequired,
+  places: PropTypes.array.isRequired
 };
 const mapStateToProps = state => ({
-  ...state.placesSearch,
+  ...state.placesSearch
 });
 const mapDispatchToProps = {
   initialSearch,
   loadMore,
   destroy,
-  search,
+  search
 };
 export default connect(
   mapStateToProps,
