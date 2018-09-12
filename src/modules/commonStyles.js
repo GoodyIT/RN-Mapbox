@@ -29,6 +29,10 @@ const commonStyles = {
     paddingLeft: 10,
     paddingRight: 10,
   },
+  px_20: {
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
   pr_5: {
     paddingRight: 5,
   },
@@ -41,11 +45,20 @@ const commonStyles = {
   pl_10: {
     paddingLeft: 10,
   },
+  pt_20: {
+    paddingTop: 20,
+  },
   rounded_10: {
     borderRadius: 10,
   },
   rounded_50_percents: {
     borderRadius: 10,
+  },
+  rounded_topLeft_20: {
+    borderTopLeftRadius: 20,
+  },
+  rounded_topRight_20: {
+    borderTopRightRadius: 20,
   },
   pb_20: {
     paddingBottom: 20,
@@ -94,6 +107,15 @@ const commonStyles = {
   },
   color_black: {
     color: '#000',
+  },
+  fontSize_20: {
+    fontSize: 20
+  },
+  fontColor_black: {
+    color: '#222222'
+  },
+  bordercolor: {
+    borderColor: '#dbdbdb'
   },
   // special class for markup debugging
   here: {
