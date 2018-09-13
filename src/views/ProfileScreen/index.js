@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, ImageBackground, Image, Dimensions, View, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import { Container, Content, Button, Icon, Text, Thumbnail, Badge, Picker } from 'native-base';
-import { MapView } from 'expo';
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import { Col, Grid } from 'react-native-easy-grid';
 import { Rating } from 'react-native-ratings';

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Container, Content, Text, Button, Item, Input, Form, DatePicker } from 'native-base';
 import { Image } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import Expo from 'expo';
 import { commonStyles } from '../modules';
 import FiltersBadge from './FiltersBadge';
 
@@ -22,7 +21,8 @@ class ProfileCardEditPage extends Component {
     const imageURL = 'https://www.flirt.com/blog/wp-content/uploads/flirt-com/Black-Cat.jpg';
 
     return (
-      <Container style={{ paddingTop: Expo.Constants.statusBarHeight }}>
+      // <Container style={{ paddingTop: Expo.Constants.statusBarHeight }}>
+      <Container style={{ paddingTop: 0 }}>
         <Content>
           <Grid>
             <Row style={{}}>

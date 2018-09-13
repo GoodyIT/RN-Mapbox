@@ -13,6 +13,6 @@ export default createSwitchNavigator(
     Profile,
   },
   {
-    initialRouteName: 'Profile',
+    initialRouteName: 'App',
   }
 );

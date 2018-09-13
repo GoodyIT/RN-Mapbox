@@ -13,12 +13,12 @@ import {
   CheckBox,
   ListItem,
 } from 'native-base';
-import Expo from 'expo';
 
 const styles = {
   container: {
     backgroundColor: '#f6f6f6',
-    paddingTop: Expo.Constants.statusBarHeight + 35,
+    // paddingTop: Expo.Constants.statusBarHeight + 35,
+    paddingTop: 35,
     height: '100%',
     display: 'flex',
     flexDirection: 'column',

@@ -15,20 +15,31 @@ export default StyleSheet.create({
         width: 50,
         height: 50,
         shadowColor: 'transparent',
-        shadowOpacity: 0,
-        backgroundColor: 'transparent'
+        elevation: 0,
+        backgroundColor: 'transparent',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     emotionButton_sel: {
         width: 50,
         height: 50,
         backgroundColor: 'white',
-        ...commonStyles.bordercolor
+        ...commonStyles.bordercolor,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
-    emotionImg: {
+    submitButton: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 50,
+    },
+    imgEmotion: {
         width: 30,
-        height: 30
+        height: 30,
+        paddingLeft: 0,
+        paddingRight: 0
     },
-    emotionImg_sel: {
+    imgEmotion_sel: {
         width: 40,
         height: 40
     },

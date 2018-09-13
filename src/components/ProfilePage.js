@@ -3,16 +3,15 @@ import { Switch } from 'react-native';
 import PropTypes from 'prop-types';
 import { Container, Content, Button, Icon, Text, Thumbnail, Badge, Picker } from 'native-base';
 import { Col, Grid } from 'react-native-easy-grid';
-import Expo from 'expo';
 import { commonStyles } from '../modules';
 import ProfilesCard from './ProfilesCard';
 import FiltersBadge from './FiltersBadge';
 
 const styles = {
   container: {
-    // paddingTop: 10,
     backgroundColor: '#f6f6f6',
-    paddingTop: Expo.Constants.statusBarHeight + 5,
+    // paddingTop: Expo.Constants.statusBarHeight + 5,
+    paddingTop: 5,
   },
   avatar: {
     height: 130,
