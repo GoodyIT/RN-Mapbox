@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
+
 import {
   Title,
   Button,
@@ -17,8 +19,7 @@ import {
 const styles = {
   container: {
     backgroundColor: '#f6f6f6',
-    // paddingTop: Expo.Constants.statusBarHeight + 35,
-    paddingTop: 35,
+    paddingTop: getStatusBarHeight() + 35,
     height: '100%',
     display: 'flex',
     flexDirection: 'column',

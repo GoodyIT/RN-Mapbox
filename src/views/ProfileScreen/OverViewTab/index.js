@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, FlatList, Image } from 'react-native';
+import { View, TouchableOpacity, FlatList, Image, TextInput } from 'react-native';
 import { Button } from 'native-base';
 import { Icon, Text } from 'native-base';
 import { commonStyles } from '../../../modules';
 import styles from './styles';
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 
 const location = 'Animal Specially Center,\n421 E Drachman, Tucson AZ 85705 - 7598\n USA';
 const phone = '011 4905 3399';
@@ -78,6 +79,18 @@ class OverViewTab extends Component {
                 style={[styles.containerOverView,]}
             >
                 <View style={{ borderRadius: 20, ...commonStyles.mt_20, overflow: 'hidden' }}>
+                    {/* <MapView
+                        // key={JSON.stringify(customMapStyle)}
+                        // provider={PROVIDER_GOOGLE}
+                        style={{ height: 200 }}
+                        initialRegion={{
+                            latitude: 51.5074,
+                            longitude: 0.1278,
+                            latitudeDelta: 0.0922,
+                            longitudeDelta: 0.0421,
+                        }}
+                    /> */}
+
                     {/* <MapView
                         style={{ height: 200 }}
                         initialRegion={{
@@ -173,8 +186,7 @@ class OverViewTab extends Component {
                                         style={this.state.indexEmotion == item.id ? styles.imgEmotion_sel : styles.imgEmotion}
                                     />
                                 </Button>
-                                <View
-                                >
+                                <View style={{ marginTop: 5 }}>
                                     <Text
                                         style={[{ ...commonStyles.fontSize1, },
                                         this.state.indexEmotion == item.id ? commonStyles.color_grey : { color: 'transparent' }
@@ -188,13 +200,19 @@ class OverViewTab extends Component {
                     />
                 </View>
                 <View style={{ borderBottomWidth: 1, ...commonStyles.bordercolor, ...commonStyles.mt_20, marginHorizontal: -20 }} />
+
+                <TextInput
+                    placeholder='Add a comment'
+                    multiline
+                    placeholderTextColor={{ ...commonStyles.color_grey }}
+                    underlineColorAndroid='transparent'
+                    style={{ maxHeight: 100 }}
+                />
+
+                <View style={{ borderBottomWidth: 1, ...commonStyles.bordercolor, ...commonStyles.mt_15, marginHorizontal: -20 }} />
                 <TouchableOpacity style={styles.submitButton}>
-                    <Text style={styles.textBold} >REVIEWS</Text>
-
+                    <Text style={styles.textBold} >Submit Review</Text>
                 </TouchableOpacity>
-
-                <View style={{ borderBottomWidth: 1, ...commonStyles.bordercolor, ...commonStyles.mt_20, marginHorizontal: -20 }} />
-                <View style={{ height: 500 }} />
             </View>
         )
     }

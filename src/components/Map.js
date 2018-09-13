@@ -8,8 +8,8 @@ const { width, height } = Dimensions.get('window');
 const Map = ({ lat, lng, customMapStyle, title }) => (
   <View style={styles.container}>
     <MapView
-      key={JSON.stringify(customMapStyle)}
-      provider={PROVIDER_GOOGLE}
+      // key={JSON.stringify(customMapStyle)}
+      // provider={PROVIDER_GOOGLE}
       style={styles.mapContainer}
       initialRegion={{
         latitude: lat,
@@ -21,7 +21,7 @@ const Map = ({ lat, lng, customMapStyle, title }) => (
     >
       <Marker
         title={title}
-        coordinate={{latitude: lat, longitude: lng}}
+        coordinate={{ latitude: lat, longitude: lng }}
       />
     </MapView>
   </View>

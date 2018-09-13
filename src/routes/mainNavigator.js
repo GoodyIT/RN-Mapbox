@@ -1,16 +1,19 @@
 import React from 'react';
-import { createBottomTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeStackNavigator from './homeNavigator';
 import SeachStackNavigator from './searchNavigator';
-import ProfilePage from '../containers/ProfileContainer';
+import Profile from '../containers/ProfileContainer';
+import ProfilePage from '../views/ProfileScreen'
+
 import { iconConfig } from '../config'
 
-export default createBottomTabNavigator(
+
+const mainNavigator = createBottomTabNavigator(
   {
     Home: HomeStackNavigator,
     Search: SeachStackNavigator,
-    Profile: ProfilePage,
+    Profile: Profile,
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -31,3 +34,23 @@ export default createBottomTabNavigator(
     },
   }
 );
+
+export default createStackNavigator(
+  {
+    mainNavigator: {
+      screen: mainNavigator,
+      navigationOptions: {
+        header: null
+      }
+    },
+    ProfilePage: {
+      screen: ProfilePage,
+      navigationOptions: {
+        header: null
+      }
+    }
+  },
+  {
+    initialRouteName: 'mainNavigator'
+  }
+)

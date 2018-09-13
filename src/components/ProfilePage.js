@@ -6,12 +6,12 @@ import { Col, Grid } from 'react-native-easy-grid';
 import { commonStyles } from '../modules';
 import ProfilesCard from './ProfilesCard';
 import FiltersBadge from './FiltersBadge';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 const styles = {
   container: {
     backgroundColor: '#f6f6f6',
-    // paddingTop: Expo.Constants.statusBarHeight + 5,
-    paddingTop: 5,
+    paddingTop: getStatusBarHeight() + 5,
   },
   avatar: {
     height: 130,

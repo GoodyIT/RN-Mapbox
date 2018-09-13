@@ -4,6 +4,7 @@ import { Platform } from 'react-native';
 import { Container, Content } from 'native-base';
 import PlaceShortInfoModal from './PlaceShortInfoModal';
 import PlaceCard from './PlaceCard';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 const cardsUrl = [
   'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg',
@@ -51,8 +52,7 @@ class HomePage extends React.Component {
     const { modalVisible } = this.state;
 
     return (
-      // <Container style={{ paddingTop: Expo.Constants.statusBarHeight }}>
-      <Container style={{ paddingTop: 0 }}>
+      <Container style={{ paddingTop: getStatusBarHeight() }}>
         <Content style={{ paddingLeft: 7, paddingRight: 7, paddingBottom: 10 }}>
           <PlaceShortInfoModal
             {...this.props}

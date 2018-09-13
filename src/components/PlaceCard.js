@@ -23,7 +23,7 @@ const PlaceCard = props => {
   return (
     <TouchableWithoutFeedback
       disable={false}
-      onPress={() => navigation.navigate('ProfileCardEdit')}
+      onPress={() => navigation.navigate('ProfilePage')}
       onLongPress={() => setModalVisible(true)}>
       <Card style={styles.card}>
         <CardItem cardBody>
