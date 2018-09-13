@@ -3,7 +3,7 @@ import { createSwitchNavigator } from 'react-navigation';
 import App from './mainNavigator';
 import Auth from '../containers/LoginContainer';
 import AuthLoading from '../containers/AuthLoadingContainer';
-import Profile from '../containers/ProfileContainer';
+import Profile from '../views/ProfileScreen';
 
 export default createSwitchNavigator(
   {
@@ -13,6 +13,6 @@ export default createSwitchNavigator(
     Profile,
   },
   {
-    initialRouteName: 'AuthLoading',
+    initialRouteName: 'Profile',
   }
 );
