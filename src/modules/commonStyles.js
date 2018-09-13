@@ -123,6 +123,12 @@ const commonStyles = {
   fontSize3: {
     fontSize: 24
   },
+  fontSize4: {
+    fontSize: 30
+  },
+  color_white: {
+    color: '#ffffff'
+  },
   color_black: {
     color: '#222222'
   },

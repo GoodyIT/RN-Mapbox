@@ -33,10 +33,21 @@ allprojects {
 }
 
 ext {
-    compileSdkVersion   = 26
-    targetSdkVersion    = 26
-    buildToolsVersion   = "26.0.2"
-    supportLibVersion   = "26.1.0"
+    compileSdkVersion   = 27
+    targetSdkVersion    = 27
+    buildToolsVersion   = "27.0.2"
+    supportLibVersion   = "27.1.0"
     googlePlayServicesVersion = "11.8.0"
     androidMapsUtilsVersion = "0.5+"
+}
+
+subprojects { subproject ->
+    afterEvaluate{
+        if((subproject.plugins.hasPlugin('android') || subproject.plugins.hasPlugin('android-library'))) {
+            android {
+                compileSdkVersion rootProject.ext.compileSdkVersion
+                buildToolsVersion rootProject.ext.buildToolsVersion
+            }
+        }
+    }
 }
