@@ -22,16 +22,16 @@ const commonStyles = {
     margin: 2,
   },
   px_7: {
-    paddingLeft: 7,
-    paddingRight: 7,
+    paddingHorizontal: 7
   },
   px_10: {
-    paddingLeft: 10,
-    paddingRight: 10,
+    paddingHorizontal: 10
+  },
+  px_15: {
+    paddingHorizontal: 15
   },
   px_20: {
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingHorizontal: 20
   },
   pr_5: {
     paddingRight: 5,
@@ -44,6 +44,9 @@ const commonStyles = {
   },
   pl_10: {
     paddingLeft: 10,
+  },
+  pl_20: {
+    paddingLeft: 20,
   },
   pt_20: {
     paddingTop: 20,
@@ -78,6 +81,9 @@ const commonStyles = {
   mt_7: {
     marginTop: 7,
   },
+  mt_15: {
+    marginTop: 15,
+  },
   mt_20: {
     marginTop: 20,
   },
@@ -108,11 +114,26 @@ const commonStyles = {
   color_black: {
     color: '#000',
   },
-  fontSize_20: {
-    fontSize: 20
+  fontSize1: {
+    fontSize: 12
   },
-  fontColor_black: {
+  fontSize2: {
+    fontSize: 18
+  },
+  fontSize3: {
+    fontSize: 24
+  },
+  color_black: {
     color: '#222222'
+  },
+  color_blue: {
+    color: '#0093ff'
+  },
+  color_grey: {
+    color: '#8b8989'
+  },
+  color_green: {
+    color: '#4fbf4b'
   },
   bordercolor: {
     borderColor: '#dbdbdb'
