@@ -3,7 +3,10 @@ import { Root } from 'native-base';
 import { Provider } from 'react-redux';
 import Navigator from './src/routes/';
 import store from './src/modules/store';
+import MapboxGL from '@mapbox/react-native-mapbox-gl';
+import { MapboxAccessToken } from './src/config';
 
+MapboxGL.setAccessToken(MapboxAccessToken);
 export default class RootApp extends Component {
   constructor(props) {
     super(props);

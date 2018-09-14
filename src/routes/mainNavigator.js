@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeStackNavigator from './homeNavigator';
 import SeachStackNavigator from './searchNavigator';
 import Profile from '../containers/ProfileContainer';
+import MapPage from '../containers/MapContainer';
 import ProfilePage from '../views/ProfileScreen'
 
 import { iconConfig } from '../config'
@@ -14,6 +15,7 @@ const mainNavigator = createBottomTabNavigator(
     Home: HomeStackNavigator,
     Search: SeachStackNavigator,
     Profile: Profile,
+    Map: MapPage
   },
   {
     navigationOptions: ({ navigation }) => ({

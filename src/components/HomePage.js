@@ -21,6 +21,7 @@ class HomePage extends React.Component {
   };
 
   componentWillMount() {
+    console.log("Homepage ComponentWill Mount");
     // if (Platform.OS === 'android' && !Constants.isDevice) {
     //   this.setState({
     //     errorMessage: 'Oops, this will not work on Sketch in an Android emulator. Try it on your device!',

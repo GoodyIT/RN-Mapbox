@@ -4,6 +4,7 @@ import App from './mainNavigator';
 import Auth from '../containers/LoginContainer';
 import AuthLoading from '../containers/AuthLoadingContainer';
 import Profile from '../views/ProfileScreen';
+import MapPage from '../containers/MapContainer';
 
 export default createSwitchNavigator(
   {
@@ -11,6 +12,7 @@ export default createSwitchNavigator(
     App,
     Auth,
     Profile,
+    MapPage
   },
   {
     initialRouteName: 'App',

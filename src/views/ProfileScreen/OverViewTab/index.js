@@ -4,7 +4,6 @@ import { Button } from 'native-base';
 import { Icon, Text } from 'native-base';
 import { commonStyles } from '../../../modules';
 import styles from './styles';
-import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 
 const location = 'Animal Specially Center,\n421 E Drachman, Tucson AZ 85705 - 7598\n USA';
 const phone = '011 4905 3399';

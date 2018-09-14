@@ -2,8 +2,11 @@ export const iconConfig = {
   Home: 'ios-home',
   Profile: 'ios-contact',
   Search: 'ios-search',
+  Map: 'ios-map',
   default: 'ios-home',
 };
+
+export const MapboxAccessToken = "pk.eyJ1IjoidGVjaGxvZ2ljc2xpbmtzIiwiYSI6ImNqbTE5bzk3cTA1OWsza211YzlxeHdjbmQifQ.Na1rUu8CPKvh0NO7fcIrpQ";
 
 export const MapCustomStyle = [
   [],

@@ -2,6 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ProfilePage from './ProfileContainer';
+import MapPage from './MapContainer';
 import HomePage from '../components/HomePage';
 import SearchPage from '../components/SearchPage';
 import SubcategoryPage from '../components/SubcategoryPage';
@@ -12,6 +13,7 @@ const iconConfig = {
   Home: 'ios-home',
   Profile: 'ios-contact',
   Search: 'ios-search',
+  MapPage: 'ios-map',
   default: 'ios-home',
 };
 
@@ -52,6 +54,7 @@ export default createBottomTabNavigator(
     Home: HomeStack,
     Search: SeachStack,
     Profile: ProfilePage,
+    MapPage: MapPage
   },
   {
     navigationOptions: ({ navigation }) => ({

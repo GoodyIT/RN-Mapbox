@@ -1,13 +1,12 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import { PropTypes } from 'prop-types';
-import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 
 const { width, height } = Dimensions.get('window');
 
 const Map = ({ lat, lng, customMapStyle, title }) => (
   <View style={styles.container}>
-    <MapView
+    /* <MapView
       // key={JSON.stringify(customMapStyle)}
       // provider={PROVIDER_GOOGLE}
       style={styles.mapContainer}
@@ -23,7 +22,7 @@ const Map = ({ lat, lng, customMapStyle, title }) => (
         title={title}
         coordinate={{ latitude: lat, longitude: lng }}
       />
-    </MapView>
+    </MapView> */
   </View>
 );
 
