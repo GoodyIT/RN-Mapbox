@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Switch, ImageBackground, Image, Dimensions, View, FlatList, ScrollView, TouchableOpacity } from 'react-native';
-import { Container, Content, Button, Icon, Text, Thumbnail, Badge, Picker } from 'native-base';
-import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
-import { Col, Grid } from 'react-native-easy-grid';
+import { Image, Dimensions, View, FlatList, TouchableOpacity } from 'react-native';
+import { Button, Icon, Text, Picker } from 'native-base';
+import HeaderImageScrollView from 'react-native-image-header-scroll-view';
 import { Rating } from 'react-native-ratings';
 import { commonStyles } from '../../modules';
 
@@ -38,7 +37,10 @@ const dataReviews = [
         img: require('../../Images/face2.jpg')
     }
 ]
+
+const STAR_IMAGE = require('../../Images/star.png')
 class ProfilePage extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -58,13 +60,9 @@ class ProfilePage extends Component {
                 break;
         }
     }
-    render() {
+    renderContent() {
         return (
-            <ScrollView style={styles.container}>
-                <View>
-                    <ImageBackground resizeMode='stretch' source={require('../../Images/profile_back.jpg')} style={{ height: 120, width: width }} />
-                </View>
-
+            <View style={styles.container}>
                 <View style={styles.contentView}>
                     <View style={styles.titleView1}>
                         <View>
@@ -89,10 +87,9 @@ class ProfilePage extends Component {
                         <View>
                             <View style={{ flexDirection: 'row' }}>
                                 <Rating
+                                    type='custom'
                                     imageSize={15}
-                                    rating={1}
-                                    ratingBackgroundColor='#ff0000'
-                                    fill-color='red'
+                                    ratingBackgroundColor='transparent'
                                     ratingCount={5}
                                 />
                                 <View style={{ marginLeft: 10 }}>
@@ -142,7 +139,80 @@ class ProfilePage extends Component {
                 {
                     this.renderTabView(this.state.indexTab)
                 }
-            </ScrollView >
+            </View>
+        )
+    }
+    renderHeader() {
+        return (
+            <View style={{ justifyContent: 'space-between', flex: 1, paddingBottom: 50, zIndex: 1 }}>
+                <View></View>
+                <View style={{ marginHorizontal: 20 }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <View>
+                            <Text style={{ ...commonStyles.color_white, ...commonStyles.fontSize1 }}>Veterinary</Text>
+                        </View>
+                        <View style={{ marginLeft: 15 }}>
+                            <Text style={{ ...commonStyles.color_green, ...commonStyles.fontSize1 }}>Best</Text>
+                        </View>
+                    </View>
+                    <View style={{ ...commonStyles.mt_20 }}>
+                        <Text style={{ ...commonStyles.color_white, ...commonStyles.fontSize4 }}>Animal Specialty Center</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', ...commonStyles.mt_20, alignItems: 'center' }}>
+                        <Rating
+                            imageSize={15}
+                            ratingCount={5}
+                        />
+                        <View style={{ marginLeft: 10 }}>
+                            <Text style={{ ...commonStyles.color_white, ...commonStyles.fontSize2 }}>108 reviews</Text>
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: 'row', ...commonStyles.mt_7, alignItems: 'center' }}>
+                        <Text style={{ ...commonStyles.color_white, ...commonStyles.fontSize2 }}>900m - 5min</Text>
+                    </View>
+                    <Icon type='Feather' name='heart' style={{ color: 'white', fontSize: 24, ...commonStyles.mt_20 }} />
+
+                </View>
+            </View>
+        )
+    }
+    renderFixedHeader() {
+        const { goBack } = this.props.navigation;
+        return (
+            <View style={{ justifyContent: 'space-between', height: 100, width: '100%', paddingBottom: 50, position: 'absolute', overflow: 'hidden' }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <TouchableOpacity
+                        style={{ padding: 20 }}
+                        onPress={() => goBack()}
+                    >
+                        <Icon type='Entypo' name='chevron-thin-left' style={{ color: 'white', ...commonStyles.fontSize3 }} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ padding: 20 }}>
+                        <Icon type='EvilIcons' name='share-apple' style={{ color: 'white', fontSize: 40 }} />
+                    </TouchableOpacity>
+                </View>
+            </View>
+        )
+    }
+    render() {
+        return (
+            <View style={{ flex: 1 }}>
+                <HeaderImageScrollView
+                    style={{ zIndex: 1 }}
+                    maxHeight={height}
+                    maxOverlayOpacity={0}
+                    minHeight={100}
+                    renderHeader={() => (<Image source={require('../../Images/profile_back.jpg')} />)}
+                    renderForeground={() => this.renderHeader()}
+                    foregroundParallaxRatio={3}
+                // renderFixedForeground={() => this.renderFixedHeader()}
+                >
+                    {this.renderContent()}
+                </HeaderImageScrollView>
+                {
+                    this.renderFixedHeader()
+                }
+            </View>
         )
     }
 }

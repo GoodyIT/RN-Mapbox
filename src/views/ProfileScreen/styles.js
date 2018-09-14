@@ -5,8 +5,7 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 export default StyleSheet.create({
     container: {
         backgroundColor: '#f6f6f6',
-        paddingTop: getStatusBarHeight() + 5,
-        flex: 1,
+        flex: 1
     },
     containerOverView: {
         flex: 1,
